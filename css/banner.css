@@ -1,15 +1,20 @@
 .banner {
   position: relative;
 }
-.layout {
-}
+
+/* .layout {
+
+} */
+
 .banner_wrap {
   position: relative;
 }
+
 .banner_slide {
   display: flex;
   gap: 25px;
 }
+
 .banner_slide_item {
   display: block;
   border-radius: 15px;

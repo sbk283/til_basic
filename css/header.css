@@ -107,8 +107,10 @@
   height: auto;
 }
 
-.header_top_right {
-}
+/* .header_top_right {
+
+} */
+
 .link_site {
   display: flex;
   align-items: center;
@@ -137,8 +139,11 @@
 .main_menu {
   display: flex;
 }
-.main_menu li {
-}
+
+/* .main_menu li {
+
+} */
+
 .main_menu li a {
   position: relative;
 
