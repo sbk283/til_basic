@@ -102,6 +102,7 @@
   - 
 
 - <태그>내용</태그>
+- 반드시 소문자로 모두 구성합니다.
 
 ## 3.1. `div 태그`
 
@@ -109,11 +110,11 @@
 - 내용 배치의 레이아웃을 담당함.
 - 기본적으로 `<div class="warp"> </div>`
 - 최초 구성 필수(경험-경력이 필요함.)
-- 내용을 충분히 분석하고 난 이후에 `주석을 명시` 후 div 사용
+- 내용을 충분히 분석(`Figma, PRD` 분석)하고 난 이후에 `주석을 명시` 후 div 사용
 - div 태그에 역할에 맞는 이름을 `class 로 지정`함.
 
 ## 3.2. `시멘틱 태그`
-
+- 시멘틱 태그는 태그 단어 자체가 내용을 유추하도록 안내함.
 - div 로 내용을 구분 후 아래 영역은 태그를 변경하기를 추천합니다.
 - `header 태그` : 검색엔진에서 내용을 기대함(로고, 타이틀, 주메뉴, 검색, 회원기능 ...)
 - `main 태그` : 컨텐츠 모음
@@ -250,23 +251,32 @@
 - `<img src="이미지경로/파일명.확장" alt="대체글" />`
 
 # 4. CSS 의 이해
+- css 선택자
+
+```css
+태그 {}
+.클래스 {}
+#아이디 {}
+태그 태그 태그 {}
+.클래스 태그 태그 {}
+```
 
 ## 4.1. CSS 코딩 자리 3가지
 
-- 인라인 css
+- 인라인 css (추후 React 에서는 인라인 방식을 많이 활용함 : css 우선순위 적용)
 
 ```html
  <태그 style=""> </태그>
 ```
 
-- style 태그 css
+- style 태그 css (추후 React 에서는 object 방식으로 많이 활용함)
 
 ```html
 <style></style>
 <태그></태그>
 ```
 
-- style 파일 link 방식
+- style 파일 link 방식 (추후 React 에서는 많이 활용함 : 파일명.mudule.css)
 
 ```html
 <link rel="stylesheet" href="경로/파일명.css" />
@@ -289,6 +299,7 @@
 - 하나의 `침범할 수 없는 가로 영역`
 - div, ul, li, h1~h6, p 등등
 - 기본적으로 width: 100%
+- css의 모든 값을 활용할 수 있다. (width, height, margin, padding 등)
 
 ### 4.3.2. inline
 
@@ -300,6 +311,7 @@
 
 - inline 과 block 을 조합한다.
 - 가로로 배치되면서, width, height 등을 자유롭게 활용함.
+- 엔터키에 의한 공백 한칸이 작성됨. (원하지 않는 공백이 영역에 들어감.)
 
 ### 4.3.4. flex
 
@@ -311,7 +323,7 @@
 ### 4.3.5. grid(추후 파악)
 
 - block 이면서 inline 이면서, 가로 정렬, 세로 정렬, 여백조절 가능
-- 표처럼 레이아웃 배치시 최적화
+- `표`처럼 레이아웃 배치시 최적화
 - https://studiomeal.com/archives/533
 
 ### 4.3.6. none
@@ -358,6 +370,7 @@
 - 모든 css 및 html 작업전에 결정하여야 합니다.
 - 디자이너 및 기획자에게 문의해야 합니다.
 - css 의 body 에 기본 글꼴 배치 권장함.
+- 절대 유료폰트 확인하시고 활용.
 
 ### 4.5.1. 구글 웹폰트 활용하기
 
@@ -395,5 +408,154 @@
   position: fixed;
   left: 0;
   top: 0;
+
+  width: 100%;
+  height: 50px;
+  z-index: 999;
 }
 ```
+
+## 4.7. before, after 의 이해
+- 대표적으로 아이콘 출력하는 경우 많이 활용.
+```html
+<대상> before 내용 after </대상>
+```
+
+```css
+대상::after {
+  content: "";
+}
+
+대상:before {
+  content: "";
+}
+```
+
+# 5. javaScript 의 이해
+- Java 는 객체지향프로그래밍, javaScript는 스크립트 프로그래밍
+- 웹브라우저용 js가 원본인데, V8 엔진만 추출해서 Node.js 만듦
+- PC용 즉, 로컬용 js 가 Node.js 입니다.
+  (DB 제어, 네트워크, 소프트웨어, 앱 개발 등)
+
+## 5.1. 기본적은 js의 역할(개인 주관)
+- html, css 제어 js
+- 데이터 연동 js
+
+## 5.2. js 코딩 자리
+- 가장 아랫 줄이 제일 좋은 코드 자리 입니다.
+
+### 5.2.1. 인라인 방식
+```html
+<태그 onload="" onclick=""> </태그>
+```
+
+### 5.2.2. 태그 방식
+```html
+<script> </script>
+<태그></태그>
+```
+
+### 5.2.3. 파일 방식
+```html
+<script src="경로/파일명.확장자> </script>
+<태그></태그>
+```
+
+## 5.3. js 가 실팽되는 시점 유의 사항(html, css 제어시)
+- html과 js가 모두 준비가 되면 실행되길 원함.
+```js
+window.addEventListener("DOMContentLoaded", function () {
+  // 할일
+});
+```
+
+- 이미지 등의 용량이 큰 리소스가 모두 준비되면 실행되길 원함.
+```js
+window.addEventListener("load", function () {
+  // 할일
+});
+```
+
+## 5.4. js 를 이용한 태그 선택하기
+```js
+const tag = document.querySelector("태그")
+const class = document.querySelector(".클래스")
+const id = document.querySelector("#아이디")
+const tags = document.querySelector("태그 태그 태그")
+const tag2 = document.querySelector(".클래스 태그 태그")
+```
+
+## 5.5 백틱을 이용한 변수값 출력
+```js
+const age = 20;
+const tag = '<div>나이는 ${age}</div>';
+```
+
+## 5.6. 문자를 html로 출력하기
+```js
+const tag = `<div>안녕</div>`;
+const pos = document.querySelector(".hi");
+pos.innerHTML = tag;
+```
+
+## 5.7. 원시(Primitive) 데이터 종류의 이해
+- js에서 이해할 수 있는 자료의 종류를 `데이터타입` 또는 `데이터 형` 이라고 합니다.
+- 영어로는 Data Type 이라고 합니다.
+
+### 5.7.1. 문자열
+- 문자와 문자열은 다릅니다.
+
+```js
+const 변수명 = "변수값";
+const nickName1 = "홍길동";
+const nickName2 = '홍길동';
+const nickName3 = `홍길동`;
+```
+
+### 5.7.2. 숫자
+- 정수(양수, 음수), 실수(양소수, 음소수)
+```js
+const 변수명 = 변수값;
+const age = 10;
+const height = 180.5;
+```
+
+### 5.7.3. boolean(참, 거짓)
+- true, false
+```js
+const isLogin = true;
+const isMember = false;
+```
+
+### 5.7.4. undefined
+- 모든 변수의 초기값
+- 변수값이 정의가 안되있어요.
+```js
+let nickName;
+```
+
+### 5.7.5. null
+- 개발자가 정말 값이 없다고 명시함.
+```js
+const isLogin = null;
+```
+
+### 5.7.6. symbol
+- 절대로 js 코드에서 중복이 안되는 내용 만드는 경우
+
+## 5.8. 원시 데이터를 모아서 만드는 데이터 종류의 이해
+### 5.8.1. 배열
+```js
+const atrArr = [1, 3 ,"안녕" ,true ,false ,null ,undefined ,symbol];
+```
+
+### 5.8.1. 객체
+```js
+const obj = {
+  학년: 1,
+  수업: "과학",
+  남: false,
+};
+```
+
+### 5.8.1.

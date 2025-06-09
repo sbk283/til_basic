@@ -63,7 +63,7 @@ window.addEventListener("DOMContentLoaded", function () {
     let htmlTag = "";
   
     for (let i = 0; i < total; i++) {
-      htmlTag = htmlTag +  `
+      htmlTag = htmlTag + `
       <div class="swiper-slide">
       <a href="${apiData[i].link}" class="banner_slide_item">
           <img src="${apiData[i].image}" alt="${apiData[i].alt}" />
