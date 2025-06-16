@@ -1,6 +1,7 @@
 .ticket {
   padding-top: 60px;
   position: relative;
+  padding-bottom: 20px;
 }
 .layout {
   position: relative;
@@ -228,6 +229,43 @@
 @media all and (max-width: 1080px) {
 }
 @media all and (max-width: 1024px) {
+  .ticket {
+    padding-top: 30px;
+    border-top: 8px solid #dfdfdf;
+  }
+  .ticket_header {
+    padding-bottom: 15px;
+  }
+  .ticket_header_title {
+    font-size: 20px;
+  }
+  .ticket_header_text {
+    padding-top: 0;
+    font-size: 15px;
+  }
+  .ticket_category {
+    margin-bottom: 20px;
+  }
+
+  .ticket_category_list li button {
+    height: 34px;
+  }
+  .ticket_info {
+    padding: 10px;
+  }
+  .ticket_item_title {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .ticket_more_bt {
+    width: 100%;
+    border-radius: 4px;
+    height: 48px;
+  }
+  .ticket_footer {
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
 }
 @media all and (max-width: 960px) {
 }
