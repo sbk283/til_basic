@@ -164,6 +164,11 @@
   font-size: 15px;
 }
 
+.live_detail_percent {
+  color: red;
+  display: flex;
+}
+
 .live_slide_prev {
   display: flex;
   align-items: center;
@@ -269,6 +274,11 @@
     width: 100%;
     border-radius: 4px;
   }
+  .live_slide_next,
+  .live_slide_prev {
+    display: none;
+  }
+
 }
 @media all and (max-width: 960px) {
 }

@@ -266,6 +266,10 @@
     padding-top: 0;
     padding-bottom: 20px;
   }
+  .ticket_slide_next,
+  .ticket_slide_prev {
+    display: none;
+  }
 }
 @media all and (max-width: 960px) {
 }
