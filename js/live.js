@@ -122,7 +122,7 @@ window.addEventListener("load", function () {
 
   // 실제 데이터 개수만큼 swiper-slide 태그 만들어 배치하기
   html = "";
-  for(let i = 0; i < liveApiData.length; i++) {
+  for (let i = 0; i < liveApiData.length; i++) {
     let tag = `
       <div class="swiper-slide">
         <a href="${liveApiData[i].링크}" class="live_slide_item">
@@ -132,52 +132,56 @@ window.addEventListener("load", function () {
 
           <div class="live_info">
             <div class="live_state">
-                <span class="live_wait">${liveApiData[i].상태}</span>
+              <span class="live_wait">${liveApiData[i].상태}</span>
             </div>
 
             <p class="live_item_title">
-                ${liveApiData[i].제목}
+              ${liveApiData[i].제목}
             </p>
 
             <div class="live_day">
-                <div class="live_day_date">${liveApiData[i].날짜}</div>
-                <div class="live_day_time">${liveApiData[i].시간}</div>
+              <div class="live_day_date">${liveApiData[i].날짜}</div>
+              <div class="live_day_time">${liveApiData[i].시간}</div>
             </div>`;
 
-            //서브타이틀이 있을때만 출력
-            for(let j = 0; j < liveApiData[i].서브이미지.length; j++) {
-              tag = tag + `
-                <div class="live_detail">
-                  <div class="live_detail_image">
-                    <img src="${liveApiData[i].서브이미지}" alt="${liveApiData[i].서브alt}" />
-                  </div>
-                  <div class="live_detail_title">
-                    ${liveApiData[i].서브타이틀}
-                  </div>
-                </div>
-              `
-            }
-            for(let y = 0; y < liveApiData[i].가격.length; y++) {
-              tag = tag + `
-                <div class="live_detail_percent">
-                  <em>${liveApiData[i].할인률}</em>
-                  <span>%</span>
-                </div>
-                <div class="live_detail_price">
-                  <em>${liveApiData[i].가격}</em>
-                  <span>원</span>
-                </div>
-              `
-            }
-            tag = 
-              tag + 
-          `</div>
+    // 서브이미지가 있을 때만 출력
+    if (liveApiData[i].서브이미지 && liveApiData[i].서브이미지 !== "") {
+      tag += `
+        <div class="live_detail">
+          <div class="live_detail_image">
+            <img src="${liveApiData[i].서브이미지}" alt="${liveApiData[i].서브alt}" />
+          </div>
+          <div class="live_detail_title">
+            ${liveApiData[i].서브타이틀}
+          </div>`;
+      // 가격과 할인률이 있을 때만 출력
+      if (
+        liveApiData[i].가격 && liveApiData[i].가격 !== "" &&
+        liveApiData[i].할인률 && liveApiData[i].할인률 !== ""
+      ) {
+        tag += `
+          <div class="live_detail_percent">
+            <em>${liveApiData[i].할인률}</em>
+            <span>%</span>
+          </div>
+          <div class="live_detail_price">
+            <em>${liveApiData[i].가격}</em>
+            <span>원</span>
+          </div>
+        `;
+      }
+      tag += `
+        </div>
+      `;
+    }
+
+    tag += `
+          </div>
         </a>
       </div>
     `;
-
-    html = html + tag;
-}
+    html += tag;
+  }
 
   // console.log("만들어진 태그: ", html);
 
