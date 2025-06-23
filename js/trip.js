@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
   // 데이터
   const tripApiData = [
     {
@@ -175,8 +175,6 @@ window.addEventListener("load", function () {
 
     html = html + tag;
   }
-
-  // console.log("만들어진 태그 : ", html);
 
   tripPos.innerHTML = html;
 

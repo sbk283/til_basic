@@ -1,11 +1,11 @@
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
   // 카테고리 버튼 클릭하면 포커스 클래스 이동하기
   // 포커스 되었을 때 적용될 포커스 이름
   const focusName = "tour_focus";
   const bts = document.querySelectorAll(".tour_button_list li button");
   // 태그 등의 DOM 들을 모아둔 배열을 다룰때 추천 반복 문법
   bts.forEach(function (item) {
-    item.addEventListener("click", function () {
+    item.addEventListener("click", () =>{
       // 모든 버튼에서 tour_focus 클래스 제거
       removeFocus();
       // 클릭된 버튼은 tour_focus 클래스 추가
@@ -14,7 +14,7 @@ window.addEventListener("load", function () {
   });
 
   // 버튼에서 포커스 제거하는 기능
-  function removeFocus() {
+  function removeFocus(){
     bts.forEach(function (item) {
       item.classList.remove(focusName);
     });

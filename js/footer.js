@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", () => {
     // 버튼 클릭시 내용 보이고, 숨기기 토글(반복)
     let isOpen = false; // true
     // 아이디 요소를 보관
@@ -9,12 +9,12 @@ window.addEventListener("DOMContentLoaded", function () {
     const arrowImg = document.querySelector("#mb_bt i img ");
 
     // 버튼 클릭 확인 코드
-    mbBt.addEventListener("click", function () {
+    mbBt.addEventListener("click", () => {
     isOpen = !isOpen;
     showHideMenu();
     });
 
-    this.window.addEventListener("resize", function () {
+    this.window.addEventListener("resize", () => {
         // 웹브라우저 너비가 1024보다 큰지 작은지
         const winW = this.window.outerWidth;
         if(winW >= 1024) {

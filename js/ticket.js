@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.addEventListener("load",() => {
     // API 데이터
     const ticketApiData = [
         {
@@ -906,14 +906,14 @@ window.addEventListener("load", function() {
 
     // 클릭시 포커스 이동하기
     btList.forEach(function(item, index) {
-      item.addEventListener("click", function() {
+      item.addEventListener("click",() => {
         focusIndex = index;
         resetBts();
       });
     });
     // 포커스 리셋 및 최종 포커스 적용하기
     function resetBts() {
-      btList.forEach(function(item) {
+      btList.forEach((item) => {
         item.classList.remove("ticket_focus");
       })
       btList[focusIndex].classList.add("ticket_focus");
@@ -958,7 +958,7 @@ window.addEventListener("load", function() {
     }
 
     // 태그 출력 장소 지정하기
-    const ticketPos = this.document.querySelector(".sw_ticket .swiper-wrapper");
+    const ticketPos = document.querySelector(".sw_ticket .swiper-wrapper");
     ticketPos.innerHTML = html;
 
     // swiper 만들기 실행

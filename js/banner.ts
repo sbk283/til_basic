@@ -1,6 +1,6 @@
 declare var Swiper: any;
 
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", ():void => {
 
     type BannerDataType = {
         id: number,
@@ -63,7 +63,8 @@ window.addEventListener("DOMContentLoaded", function () {
   // 6개 만들기
   let htmlTag: string = "";
 
-  for (let i: number = 0; i < total; i++) {
+  function makeHtml():void {
+    for (let i: number = 0; i < total; i++) {
 
     const tempData: BannerDataType = apiData[i];
 
@@ -75,14 +76,21 @@ window.addEventListener("DOMContentLoaded", function () {
 </div>
     `;
   }
+  return swiper
+  bannerPos!.innerHTML = htmlTag;
+}
+makeHtml();
+const swiper = makeHtml();
+
+  
 
   // console.log(htmlTag);
 
   // html 장소에 배치하기
-  bannerPos!.innerHTML = htmlTag;
+  
 
   // 슬라이드 만들기
-
+  function makeSlide():void {
   const swiper: any = new Swiper (".sw_banner", {
     slidesPerView: 1,
     spaceBetween: 25,
@@ -111,11 +119,11 @@ window.addEventListener("DOMContentLoaded", function () {
   // 아래 코드는 별도로 작성을 한 것입니다. (보관 권장)
   const banner: Element | null = document.querySelector(".sw_banner");
   // 배너 영역에 마우스가 걸친다면
-  banner?.addEventListener("mouseenter", function () {
+  banner?.addEventListener("mouseenter", ():void => {
     swiper.autoplay.stop();
   });
   // 배너 영역에 마우스가 빠져나간다면
-  banner?.addEventListener("mouseleave", function () {
+  banner?.addEventListener("mouseleave", ():void => {
     swiper.autoplay.start();
   });
-});
+}});
