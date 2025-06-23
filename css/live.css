@@ -157,7 +157,7 @@
   object-fit: cover;
 }
 .live_detail_title {
-  flex: 1;
+  /* flex: 1; */
   height: 65px;
   padding-top: 15px;
   color: #fff;
