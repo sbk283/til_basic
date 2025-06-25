@@ -1,27 +1,24 @@
-.card .title {
-  font-weight: 700;
+.warp {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1420px;
 }
-.card .title:hover {
-  color: blue;
+.warp .header {
+  width: 1420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.card .title:active {
-  color: orange;
+.warp .header .inner {
+  border: 5px solid red;
+  height: 100px;
+  width: 800px;
 }
-.card .title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 32px;
-  height: 32px;
-  background-color: red;
+.warp .main {
+  width: 1420px;
 }
-.card .content {
-  color: orange;
-}
-.card .content button {
-  border: 1px solid green;
-}
-.card .content button:hover {
-  background-color: red;
+.warp .footer {
+  width: 1420px;
 }/*# sourceMappingURL=test.css.map */

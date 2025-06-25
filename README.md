@@ -1046,7 +1046,8 @@ navigation: {
 
 ## 7.4. 기초 문법
 - 참조 : https://www.heropy.dev/p/Y7OrPe
-- 중첩(Nesting)
+### 7.4.1. 중첩(Nesting)
+
 ```scss
 // 중첩 (Nesting)
 .card {
@@ -1108,4 +1109,98 @@ navigation: {
 .card .content button:hover {
   background-color: red;
 }/*# sourceMappingURL=test.css.map */
+```
+
+### 7.4.2. 변수
+```scss
+// 변수 만들기
+$width-screen: 960px;
+$pc-w: 760px;
+
+// 변수 사용하기 width: $width-screen;
+.warp {
+    position: relative;
+    width: $width-screen;
+    .header {
+        width: $width-screen;
+        .inner {
+            width: $pc-w;
+        }
+    }
+    .main {
+        width: $width-screen;
+    }
+    .footer {
+        width: $width-screen;
+    }
+}
+```
+
+```css
+.warp {
+  position: relative;
+  width: 960px;
+}
+.warp .header {
+  width: 960px;
+}
+.warp .header .inner {
+  width: 760px;
+}
+.warp .main {
+  width: 960px;
+}
+.warp .footer {
+  width: 960px;
+}
+```
+
+### 7.4.3. 변수를 모으고 다른 scss 에서 사용하기
+- scss 폴더에 `val.scss` 파일 생성. (파일명 자유)
+- css 로 생성할 필요가 없는 경우 `_파일명.scss` 로 생성
+```scss
+// 변수 만들기
+$width-screen: 1000px;
+$pc-w: 800px;
+```
+- 변수 사용시 `@import "val"; `_`
+```scss
+@import 'val';
+
+// 변수 사용하기 width: $width-screen;
+.warp {
+    position: relative;
+    width: $width-screen;
+    .header {
+        width: $width-screen;
+        .inner {
+            width: $pc-w;
+        }
+    }
+    .main {
+        width: $width-screen;
+    }
+    .footer {
+        width: $width-screen;
+    }
+}
+```
+
+### 7.4.4. 함수(Mixins) 사용하기
+- 파일명을 `_` 를 활용하자. (`scss/_mixins.scss`)
+```scss
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin border-fn($cc) {
+    border: 5px solid $cc;
+}
+```
+- 사용할때 코드 작성법
+```scss
+@import 'val';
+@import 'mixins';
 ```
